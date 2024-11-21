@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <head>  
+        <meta charset="UTF-8"> 
+        <title>List</title> 
+        <link rel="stylesheet" href="style.css"> 
+    </head> 
+    <body> 
+    <div class="app-container"> 
+        <div class="input-container"> 
+            <h2>List App</h2> 
+            <div class="input">  
+                <input type = "text" id="input-box" placeholder="Add your text">  
+                <button onclick=addTask()>Add</button>  
+            </div> 
+        </div> 
+
+        <div class="lists-section">   
+            <div class="list-column" id="untagged-list"> 
+                <h3>Untagged</h3> 
+                <ul></ul> 
+              </div> 
+            <div class="list-column" id="todo-list">
+              <h3>To-Do</h3>
+              <ul></ul>
+            </div>
+            <div class="list-column" id="groceries-list">
+              <h3>Groceries</h3>
+              <ul></ul>
+            </div>  
+        </div>
+    </div>
+    </body>
+
+    <script src="app.js"></script> 
+</html> 
+
