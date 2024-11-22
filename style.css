@@ -5,19 +5,23 @@ body {
 }
   
 .app-container {
-    display: grid; /* Declares the container as a grid layout to manage the structure. */
-    grid-template-rows: auto auto; /* Defines two rows: the first for the input section and the second for the lists. */
-    justify-items: center; /* Centers the content horizontally in each grid cell. */
-    row-gap: 20px; /* Adds 20px of vertical space between the rows. */
+    display: grid; /* Declares the container as a grid layout to manage the structure. */ 
+    grid-template-rows: auto auto; /* Defines two rows: the first for the input section and the second for the lists. */ 
+    justify-items: center; /* Centers the content horizontally in each grid cell. */ 
+    row-gap: 20px; /* Adds 20px of vertical space between the rows. */ 
 }
 
 #input-box, 
 button {
-    padding: 5px; /* Consistent internal spacing */ 
+    padding: 5px; /* Consistent internal spacing */  
     font-size: 14px; /* Match font size */ 
-    height: 30px; /* Match height */ 
-    border: 1px solid #ccc; /* Same border for both elements */ 
-    box-sizing: border-box; /* Include padding and border in the total height */
+    height: 30px; /* Match height */  
+    border: 1px solid #ccc; /* Same border for both elements */  
+    box-sizing: border-box; /* Include padding and border in the total height */ 
+} 
+
+#input-box {
+    width: 410px;
 }
 
 button {
