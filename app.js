@@ -74,7 +74,7 @@ containers.forEach(container => {
         // Check if the target is a draggable element
         if (e.target && e.target.hasAttribute("draggable")) {
             const draggable = document.querySelector(".dragging") // selects the element which has the "dragging" class
-            container.appendChild(draggable);
+            // container.appendChild(draggable);
             console.log("we are dragging over");
         }
     });
