@@ -7,7 +7,6 @@ const draggables = document.querySelectorAll(".draggable") // selects draggable 
 const containers = document.querySelectorAll(".list-column") // selects the list columns (Untagged, To-Do, & Groceries)
 
 // ADD TASKS
-
 function addTask(){
     if (inputBox.value === ''){
         alert("No task entered.")
@@ -17,7 +16,7 @@ function addTask(){
         li.innerHTML = inputBox.value;  
         li.setAttribute("draggable","true"); // this makes this list item draggable
 
-    
+
         listContainer.appendChild(li);  
         let span = document.createElement("span");  
         span.innerHTML = "\u00d7";  
@@ -25,17 +24,14 @@ function addTask(){
     } 
     inputBox.value = ""; 
     saveData(); 
-    
 }
 
-// Add Task via Keyboard 
-
+// ADD TASKS via KEYBOARD 
 inputBox.addEventListener("keydown", function(e) { 
     if (e.key === "Enter") { // Check if the "Enter" key was pressed 
         addTask(); // Trigger the addTask function 
     } 
 }); 
-
 
 // REMOVE TASKS 
 listContainer.addEventListener("click", function(e){
@@ -51,38 +47,38 @@ listContainer.addEventListener("click", function(e){
 
 
 // DRAG-AND-DROP 
-
+// Adds EventListeners to the list-containers 
 containers.forEach(container => {
-    // adds "dragging" class → when dragging
-    container.addEventListener("dragstart", (e) => {
-        // Check if the target is a draggable element
-        if (e.target && e.target.hasAttribute("draggable")) {
-            console.log("We are dragging:", e.target);
-            e.target.classList.add("dragging");
+    // adds "dragging" class → when dragging 
+    container.addEventListener("dragstart", (e) => { 
+        // Check if the target is a draggable element 
+        if (e.target && e.target.hasAttribute("draggable")) { 
+            console.log("We are dragging:", e.target); 
+            e.target.classList.add("dragging"); 
         }
-    });
-    // removes "dragging" class → when no longer dragging
-    container.addEventListener("dragend", (e) => {
-        // Check if the target is a draggable element
-        if (e.target && e.target.hasAttribute("draggable")) {
-            e.target.classList.remove("dragging");
+    }); 
+    // removes "dragging" class → when no longer dragging 
+    container.addEventListener("dragend", (e) => { 
+        // Check if the target is a draggable element 
+        if (e.target && e.target.hasAttribute("draggable")) { 
+            e.target.classList.remove("dragging"); 
         }
     });
 
     //
-    container.addEventListener("dragover", (e) => {
-        // Check if the target is a draggable element
-        if (e.target && e.target.hasAttribute("draggable")) {
-            const draggable = document.querySelector(".dragging") // selects the element which has the "dragging" class
-            // container.appendChild(draggable);
-            console.log("we are dragging over");
-        }
-    });
-});
-
+    container.addEventListener("dragover", (e) => { 
+        e.preventDefault(); 
+        // Check if the target is a draggable element 
+        if (e.target && e.target.hasAttribute("draggable")) { 
+            const draggable = document.querySelector(".dragging") // selects the element which has the "dragging" class 
+            // working code: 
+            e.target.parentNode.insertBefore(draggable, e.target.nextSibling);  // Insert after the current item 
+            console.log("we are dragging over"); 
+        } 
+    }); 
+}); 
 
 // SAVE DATA 
-
 function saveData(){ 
     localStorage.setItem("data", listContainer.innerHTML) 
 }

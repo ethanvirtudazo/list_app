@@ -1,46 +1,46 @@
-body {
-    font-family: Arial, sans-serif; /* Sets the font style to Arial or a fallback sans-serif font for a clean look. */
-    margin: 20px; /* Adds a 20px margin around the entire body for spacing from the browser edges. */
-    background-color: rgb(182, 221, 235);
+body {  
+    font-family: Arial, sans-serif; /* Sets the font style to Arial or a fallback sans-serif font for a clean look. */ 
+    margin: 20px; /* Adds a 20px margin around the entire body for spacing from the browser edges. */ 
+    background-color: rgb(182, 221, 235); 
 }
-  
-.app-container {
-    display: grid; /* Declares the container as a grid layout to manage the structure. */ 
-    grid-template-rows: auto auto; /* Defines two rows: the first for the input section and the second for the lists. */ 
-    justify-items: center; /* Centers the content horizontally in each grid cell. */ 
-    row-gap: 20px; /* Adds 20px of vertical space between the rows. */ 
-}
+   
+.app-container { 
+    display: grid; /* Declares the container as a grid layout to manage the structure. */  
+    grid-template-rows: auto auto; /* Defines two rows: the first for the input section and the second for the lists. */   
+    justify-items: center; /* Centers the content horizontally in each grid cell. */  
+    row-gap: 20px; /* Adds 20px of vertical space between the rows. */  
+}   
 
-#input-box, 
-button {
-    padding: 5px; /* Consistent internal spacing */  
-    font-size: 14px; /* Match font size */ 
-    height: 30px; /* Match height */  
-    border: 1px solid #ccc; /* Same border for both elements */  
-    box-sizing: border-box; /* Include padding and border in the total height */ 
+#input-box,  
+button { 
+    padding: 5px; /* Consistent internal spacing */   
+    font-size: 14px; /* Match font size */  
+    height: 30px; /* Match height */   
+    border: 1px solid #ccc; /* Same border for both elements */   
+    box-sizing: border-box; /* Include padding and border in the total height */  
 } 
 
-#input-box {
-    width: 410px;
-}
+#input-box { 
+    width: 420px; 
+} 
 
-button {
-    background-color: white; /* Match background to input box */
-    cursor: pointer; /* Add pointer cursor for better usability */
-    display: inline-block; /* Ensures the button renders like a regular inline element */
-}
+button { 
+    background-color: white; /* Match background to input box */ 
+    cursor: pointer; /* Add pointer cursor for better usability */ 
+    display: inline-block; /* Ensures the button renders like a regular inline element */ 
+} 
 
-button:active {
-    background-color: rgba(49, 115, 229, 0.778);
-}
+button:active { 
+    background-color: rgba(49, 115, 229, 0.778); 
+} 
 
-.input {
-    display: flex; /* Use Flexbox for alignment */
-    align-items: center; /* Align input and button vertically */
-    gap: 5px; /* Add space between the input and button */
-}
+.input { 
+    display: flex; /* Use Flexbox for alignment */ 
+    align-items: center; /* Align input and button vertically */ 
+    gap: 5px; /* Add space between the input and button */ 
+} 
 
-.lists-section { 
+.lists-section {  
     padding-top: 20px; /* space between the lists-section and the input-box*/   
     display: grid; /* Declares the section as a grid layout for the list columns. */   
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 
@@ -49,20 +49,20 @@ button:active {
       - Each column is at least 200px wide (min). 
       - Columns expand equally to fill available space (1fr). 
       - Auto-fit adjusts the number of columns based on the container size. */ 
-    gap: 20px; /* Adds 20px of space between the columns. */ 
+    gap: 10px; /* Adds 20px of space between the columns. */ 
     width: 100%; /* Ensures the grid spans the entire width of its container. */ 
-}
+} 
   
-.list-column {
-    background-color: white;
-    border: 1px solid #ccc; /* Adds a light gray border around each column for visual separation. */
-    border-radius: 5px; /* Rounds the corners slightly for a softer look. */
-    padding: 10px; /* Adds 10px of internal spacing within each column. */
-    text-align: left; /* Centers the text horizontally in the column. */
-}
+.list-column { 
+    background-color: white; 
+    border: 1px solid #ccc; /* Adds a light gray border around each column for visual separation. */ 
+    border-radius: 5px; /* Rounds the corners slightly for a softer look. */ 
+    padding: 10px; /* Adds 10px of internal spacing within each column. */ 
+    text-align: left; /* Centers the text horizontally in the column. */ 
+} 
   
-.list-column h3 {
-    margin-bottom: 10px; /* Adds 10px of space below the heading for separation from the list items. */
+.list-column h3 { 
+    margin-bottom: 10px; /* Adds 10px of space below the heading for separation from the list items. */ 
 }
   
 .list-column ul {
@@ -120,3 +120,10 @@ ul li span:hover{
     background: #edeef0;
 }
 
+/* DRAG-AND-DROP */
+
+.draggable.dragging {
+    opacity: 0.5;  /* Make the dragged item semi-transparent */
+    position: absolute;  /* Prevent it from affecting the layout */
+    z-index: 1000;  /* Ensure it appears above other elements */
+}
