@@ -5,6 +5,8 @@ Functionality: Add a new Task
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
 const addLane = document.getElementById("general-lane");
+const allLanes = document.querySelectorAll(".swim-lane");
+
 
         // ADDING TASKS
 
@@ -38,10 +40,12 @@ input.value = "";
 });
 
         // REMOVING TASKS
-todoLane.addEventListener("click", (e) => {
-    e.preventDefault();
+allLanes.forEach((lane) => {
+    lane.addEventListener("click" , (e) => {
+        e.preventDefault();
 
-    if (e.target.tagName === "SPAN") { 
-        e.target.parentElement.remove();  
-    }
-})
+        if (e.target.tagName === "SPAN") {
+            e.target.parentElement.remove();
+        }
+    })
+})        
