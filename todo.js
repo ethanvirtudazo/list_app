@@ -4,7 +4,7 @@ Functionality: Add a new Task
 
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
-const todoLane = document.getElementById("todo-lane");
+const addLane = document.getElementById("general-lane");
 
         // ADDING TASKS
 
@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
     newTask.addEventListener("dragend", () => {
         newTask.classList.remove("is-dragging"); // this is for styling 
     });
-todoLane.appendChild(newTask);
+addLane.appendChild(newTask);
 
 input.value = "";
 });
