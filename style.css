@@ -25,7 +25,10 @@
 
 /* # selects the ID */
 #todo-form {
-    padding: 32px 32px 0;
+    padding: 40px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
 }
 
 /* selects the input-bar within the form element */
@@ -41,7 +44,7 @@
     background: white;
 
     font-size: 14px;
-    outline: none;
+    
 }
 
 /* selects the button within the form element */
@@ -63,15 +66,12 @@
         /* BOARD */
 /* selects the container for each individual board */
 .container {
-    display: flex; 
-    align-items: flex-start; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     justify-content: start;
-    gap: 16px;
-
-    padding: 24px 32px;
-
+    gap: clamp(20px, 2vw, 30px); /* Adjust gaps between swim lanes */
+    padding: 24px; /* Reduce padding to minimize extra space */
     overflow: scroll;
-    height: 100%;
 }
 
 /* selects the heading for each swim lane*/
@@ -85,14 +85,14 @@
 .swim-lane {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+
+    align-items: center;
 
     background: #f4f4f4;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 
     padding: 12px;
     border-radius: 4px;
-    width: 225px; 
     min-height: 120px;
 
     flex-shrink: 0;
@@ -115,6 +115,7 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: move;
+    margin-bottom: 10px;
 }
 
 .task span {
