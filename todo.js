@@ -6,6 +6,8 @@ const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
 const todoLane = document.getElementById("todo-lane");
 
+        // ADDING TASKS
+
 form.addEventListener("submit", (e) => {
     e.preventDefault(); // no screen reload
     const value = input.value; 
@@ -34,3 +36,12 @@ todoLane.appendChild(newTask);
 
 input.value = "";
 });
+
+        // REMOVING TASKS
+todoLane.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.tagName === "SPAN") { 
+        e.target.parentElement.remove();  
+    }
+})
