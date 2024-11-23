@@ -63,6 +63,11 @@
     cursor: pointer 
 }
 
+/* Add Button */
+#todo-form button:hover{
+    background-color: rgb(243, 243, 243); /* Adds a gray hover effect */    
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effect */
+}
         /* BOARD */
 /* selects the container for each individual board */
 .container {
@@ -82,16 +87,32 @@
     margin-bottom: 8px;
 }
 
+
+/* LANES */
 #general-lane {
     background-color: #C6E7FF;
 }
+
+#general-lane:hover {
+    background-color: #c1d7e8;
+}
+
+
 
 #groceries-lane {
     background-color: #D4F6FF;
 }
 
+#groceries-lane:hover {
+    background-color: #c8e9f2;
+}
+
 #done-lane {
     background-color: #FFDDAE;
+}
+
+#done-lane:hover {
+    background-color: #f6cc90;
 }
 
 /* selects all of the swim lanes */ 
