@@ -1,7 +1,7 @@
 /* Functionality: Add a new Task */ 
-const form = document.getElementById("todo-form");
-const input = document.getElementById("todo-input");
-const allLanes = document.querySelectorAll(".swim-lane");
+const form = document.getElementById("todo-form"); 
+const input = document.getElementById("todo-input"); 
+const allLanes = document.querySelectorAll(".swim-lane"); 
 
 // Function to save tasks to localStorage
 function saveTasks() {
@@ -13,9 +13,9 @@ function saveTasks() {
             tasks.push({
                 text: task.innerText.replace('×', '').trim(),
                 lane: lane.id // Save the lane ID (e.g., 'general-lane', 'groceries-lane')
-            });
-        });
-    });
+            }); 
+        }); 
+    }); 
 
     // Save the tasks array to localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
