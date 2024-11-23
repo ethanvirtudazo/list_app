@@ -1,37 +1,48 @@
 <!DOCTYPE html>   
 <html lang="en">   
     <head>   
-        <meta charset="UTF-8">   
-        <title>List</title>   
+        <meta charset="UTF-8"/>   
+        <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Drag & Drop API</title>   
+
         <link rel="stylesheet" href="style.css">  
     </head>  
     <body>  
-    <div class="app-container">  
-        <div class="input-container">  
-            <h2>LIST APP</h2> 
-            <div class="input">  
-                <input type = "text" id="input-box" placeholder="Add your text">  
-                <button onclick=addTask()>Add</button>  
-            </div> 
-        </div> 
+        <div class="board"> 
+            <form id="todo-form"> 
+                <input type="text" placeholder="Add New Task" id="todo-input"> 
+                <button type="submit">+</button>
+            </form>
 
-        <div class="lists-section">   
-            <div class="list-column" id="untagged-list"> 
-                <h3>Untagged</h3> 
-                <ul></ul> 
-              </div> 
-            <div class="list-column" id="todo-list">
-              <h3>To-Do</h3>
-              <ul></ul>
+            <div class="container">
+                <div class="swim-lane" id="todo-lane">
+                    <h3 class="heading">TODO</h3>
+                    <p class="task" draggable="true">Get Groceries</p>
+                    <p class="task" draggable="true">Wash dishes</p>
+                    <p class="task" draggable="true">Homework</p>
+                </div>
+
+                <div class="swim-lane" id="todo-lane">
+                    <h3 class="heading">Groceries</h3>
+                    <p class="task" draggable="true">Get Groceries</p>
+                    <p class="task" draggable="true">Wash dishes</p>
+                    <p class="task" draggable="true">Homework</p>
+                </div>
+
+                <div class="swim-lane" id="todo-lane">
+                    <h3 class="heading">Done</h3>
+                    <p class="task" draggable="true">Get Groceries</p>
+                    <p class="task" draggable="true">Wash dishes</p>
+                    <p class="task" draggable="true">Homework</p>
+                </div>
             </div>
-            <div class="list-column" id="groceries-list">
-              <h3>Groceries</h3>
-              <ul></ul>
-            </div>  
         </div>
-    </div>
     </body>
+    <script src="drag.js"></script> 
+    <script src="todo.js"></script> 
 
-    <script src="app.js"></script> 
+
+    
 </html> 
 
