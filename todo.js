@@ -6,6 +6,8 @@ const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
 const todoLane = document.getElementById("todo-lane");
 
+        // ADDING TASKS
+
 form.addEventListener("submit", (e) => {
     e.preventDefault(); // no screen reload
     const value = input.value; 
@@ -13,9 +15,15 @@ form.addEventListener("submit", (e) => {
     if (!value) return; 
 
     const newTask = document.createElement("p");
-    newTask.classList.add("task"); 
-    newTask.setAttribute("draggable", "true");
     newTask.innerText = value;
+    newTask.classList.add("task"); 
+    newTask.setAttribute("draggable", "true"); 
+
+    // deleting tasks 
+    let span = document.createElement("span");  
+    span.innerHTML = "\u00d7";  
+    newTask.appendChild(span); 
+    
     
     newTask.addEventListener("dragstart", () => {
         newTask.classList.add("is-dragging"); // this is for styling 
@@ -28,3 +36,12 @@ todoLane.appendChild(newTask);
 
 input.value = "";
 });
+
+        // REMOVING TASKS
+todoLane.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.tagName === "SPAN") { 
+        e.target.parentElement.remove();  
+    }
+})
