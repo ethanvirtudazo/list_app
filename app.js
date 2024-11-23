@@ -40,6 +40,7 @@ function createTaskElement(text) {
     task.classList.add("task");
     task.setAttribute("draggable", "true");
     task.innerText = text;
+    task.setAttribute("contenteditable", "true");
 
     // Create delete button for the task
     let span = document.createElement("span");  
