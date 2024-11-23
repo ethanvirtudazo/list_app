@@ -13,9 +13,15 @@ form.addEventListener("submit", (e) => {
     if (!value) return; 
 
     const newTask = document.createElement("p");
-    newTask.classList.add("task"); 
-    newTask.setAttribute("draggable", "true");
     newTask.innerText = value;
+    newTask.classList.add("task"); 
+    newTask.setAttribute("draggable", "true"); 
+
+    // deleting tasks 
+    let span = document.createElement("span");  
+    span.innerHTML = "\u00d7";  
+    newTask.appendChild(span); 
+    
     
     newTask.addEventListener("dragstart", () => {
         newTask.classList.add("is-dragging"); // this is for styling 
@@ -28,3 +34,6 @@ todoLane.appendChild(newTask);
 
 input.value = "";
 });
+
+
+// WEIRD BUG WHERE THE X APPEARS IN THE TOP RIGHT CORNER 

@@ -98,18 +98,57 @@
     flex-shrink: 0;
 }
 
+.task:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
+}
+
+
 .task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures text and span are spaced */
     background: white;
     color: black;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
-
     padding: 12px;
     border-radius: 4px;
-
     font-size: 16px;
     cursor: move;
+    position: relative; /* Makes it the reference for child elements */
 }
 
+.task span {
+    display: none;
+    position: absolute; /* Allows precise positioning within the task */
+    top: 50%; /* Vertically centers the span within the task */
+    right: 12px; /* Adjusts how close it is to the right edge */
+    transform: translateY(-50%); /* Corrects vertical alignment */
+    font-size: 16px; /* Size of the "×" */
+    color: #555;
+    cursor: pointer;
+    line-height: 1; /* Ensures proper line height */
+    width: 24px; /* Base size of the circle */
+    height: 24px; /* Base size of the circle */
+    text-align: center;
+    border-radius: 50%; /* Makes the hover effect circular */
+    background-color: transparent; /* Default background */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center the "×" vertically */
+    justify-content: center; /* Center the "×" horizontally */
+}
+
+.task span:hover {
+    background-color: rgb(243, 243, 243); /* Adds a gray hover effect */    
+    border-radius: 50%; /* Ensures it remains circular */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.task:hover span {
+    display: flex; /* Makes the span visible on hover */
+}
+
+/* dragging */
 .is-dragging {
     scale: 1.05;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
