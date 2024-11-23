@@ -1,7 +1,7 @@
 /* Functionality: Add a new Task */ 
-const form = document.getElementById("todo-form");
-const input = document.getElementById("todo-input");
-const allLanes = document.querySelectorAll(".swim-lane");
+const form = document.getElementById("todo-form"); 
+const input = document.getElementById("todo-input"); 
+const allLanes = document.querySelectorAll(".swim-lane"); 
 
 // Function to save tasks to localStorage
 function saveTasks() {
@@ -13,9 +13,9 @@ function saveTasks() {
             tasks.push({
                 text: task.innerText.replace('×', '').trim(),
                 lane: lane.id // Save the lane ID (e.g., 'general-lane', 'groceries-lane')
-            });
-        });
-    });
+            }); 
+        }); 
+    }); 
 
     // Save the tasks array to localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -39,20 +39,24 @@ function createTaskElement(text) {
     const task = document.createElement("p");
     task.classList.add("task");
     task.setAttribute("draggable", "true");
-    task.innerText = text;
+
+    // Add task text inside the task, but ensure span is separate
+    task.textContent = text;  // Use textContent to ensure the text is handled properly
+    task.setAttribute("contenteditable", "true");
 
     // Create delete button for the task
-    let span = document.createElement("span");  
+    let span = document.createElement("span");
     span.innerHTML = "\u00d7";  
+    span.setAttribute("contenteditable", "false");  // Make the span non-editable
     task.appendChild(span);
 
     // Drag start and end event listeners
     task.addEventListener("dragstart", () => {
-        task.classList.add("is-dragging"); // For styling 
+        task.classList.add("is-dragging"); // For styling
     });
 
     task.addEventListener("dragend", () => {
-        task.classList.remove("is-dragging"); // Remove styling 
+        task.classList.remove("is-dragging"); // Remove styling
         saveTasks(); // Save to localStorage after dragging
     });
 
@@ -62,8 +66,23 @@ function createTaskElement(text) {
         saveTasks(); // Update localStorage after removing a task
     });
 
+    // Handle Enter key to save task edit
+    task.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent creating a new line inside contenteditable
+            task.blur(); // Remove focus from the task (trigger save)
+            saveTasks(); // Save to localStorage after editing the task
+        }
+    });
+
+    // Handle blur (when focus is lost) to save the task
+    task.addEventListener("blur", () => {
+        saveTasks(); // Save task to localStorage when the task loses focus
+    });
+
     return task;
 }
+
 
 // Add task functionality
 form.addEventListener("submit", (e) => {
