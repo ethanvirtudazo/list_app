@@ -34,6 +34,3 @@ todoLane.appendChild(newTask);
 
 input.value = "";
 });
-
-
-// WEIRD BUG WHERE THE X APPEARS IN THE TOP RIGHT CORNER 
